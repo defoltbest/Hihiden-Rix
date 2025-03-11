@@ -64,6 +64,7 @@ Assets/Plugins/**       linguist-vendored
 # Unity LFS
 *.cubemap               lfs
 *.unitypackage          lfs
+*.dylib                 lfs
 
 # 3D models
 *.3dm                   lfs
