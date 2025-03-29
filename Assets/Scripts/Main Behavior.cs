@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using TMPro; // Подключаем TextMeshPro
 
@@ -29,6 +30,8 @@ public class MainBehavior : MonoBehaviour
     [SerializeField] private ObjectPrefabsSetting FindObject;
     [SerializeField] private TextMeshProUGUI dialogueText; // Используем TextMeshProUGUI
     [SerializeField] private string[] dialogues;
+    [SerializeField] private float typingDelay = 0.1f; // Задержка между печатью букв
+    [SerializeField] private GameObject dialogueUI; // GameObject, который активен только во время диалога
 
     private float currentTime;
     private int currentDialogueIndex = 0;
@@ -38,7 +41,16 @@ public class MainBehavior : MonoBehaviour
     {
         Debug.Log("Стартуем");
         InitializeGame();
-        ShowNextDialogue();
+        SetUIFindObjectPrefabsActive(false); // Скрыть UIFindObjectPrefabs при запуске игры
+        if (dialogues.Length > 0)
+        {
+            ShowNextDialogue();
+        }
+        else
+        {
+            isDialogueActive = false;
+            SetUIFindObjectPrefabsActive(true); // Показать UIFindObjectPrefabs, если диалогов нет
+        }
     }
 
     void Update() //Инициализация игры
@@ -92,13 +104,36 @@ public class MainBehavior : MonoBehaviour
         if (currentDialogueIndex < dialogues.Length)
         {
             Debug.Log($"Показ диалога: {dialogues[currentDialogueIndex]}"); // Лог для отладки
-            dialogueText.text = dialogues[currentDialogueIndex];
+            StartCoroutine(TypeText(dialogues[currentDialogueIndex]));
             currentDialogueIndex++;
         }
         else
         {
             isDialogueActive = false;
             dialogueText.gameObject.SetActive(false);
+            dialogueUI.SetActive(false); // Скрыть диалоговый UI
+            SetUIFindObjectPrefabsActive(true); // Показать UIFindObjectPrefabs
+        }
+    }
+
+    private IEnumerator TypeText(string text)
+    {
+        dialogueText.text = "";
+        foreach (char c in text)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(typingDelay);
+        }
+    }
+
+    private void SetUIFindObjectPrefabsActive(bool isActive)
+    {
+        for (int i = 0; i < FindObject.findObjectPrefabs.Length; i++)
+        {
+            if (FindObject.findObjectPrefabs[i].UIFindObjectPrefabs != null)
+            {
+                FindObject.findObjectPrefabs[i].UIFindObjectPrefabs.SetActive(isActive);
+            }
         }
     }
 
@@ -159,7 +194,6 @@ public class MainBehavior : MonoBehaviour
         Debug.Log("Игра окончена");
         GameManager.Instance.LoadGameOverScene();
     }
-
     private void LevelComplete()
     {
         Debug.Log("Уровень пройден");
