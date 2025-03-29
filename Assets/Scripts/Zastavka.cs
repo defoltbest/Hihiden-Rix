@@ -5,11 +5,14 @@ public class Zastavka : MonoBehaviour
 {
     public float delayBeforeStartVideo = 1f;
     public VideoPlayer videoPlayer;
+    public string videoUrl;
 
     private void Start()
     {
         if (videoPlayer != null)
         {
+            videoPlayer.playOnAwake = false; // Отключаем Play on Awake
+            videoPlayer.url = videoUrl; // Устанавливаем URL видео
             videoPlayer.loopPointReached += OnVideoEnd;
             Invoke("StartVideo", delayBeforeStartVideo);
         }
@@ -34,3 +37,4 @@ public class Zastavka : MonoBehaviour
         GameManager.Instance.LoadLevel(0); // Загружаем первый уровень из массива
     }
 }
+

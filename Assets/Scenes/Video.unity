@@ -155,13 +155,13 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 1
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: 
+  m_Url: https://defoltbest.github.io/host/20250315_1344_Cats%20Amidst%20Chaos_simple_compose_01jpcfkhypf0tajwv0pgm6m16y%20(1).mp4
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayBeforeStartVideo: 1
   videoPlayer: {fileID: 1034370111}
+  videoUrl: https://defoltbest.github.io/host/20250315_1344_Cats%20Amidst%20Chaos_simple_compose_01jpcfkhypf0tajwv0pgm6m16y%20(1).mp4
 --- !u!1 &1352838198
 GameObject:
   m_ObjectHideFlags: 0
