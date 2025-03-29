@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("Стартовая сцена")]
     public string startScene;
 
+    [Tooltip("Окно с концом игры")]
+    public string gameOverScene;
+
     private int currentLevelIndex = 0;
 
     private void Awake()
@@ -82,6 +85,18 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogError("Стартовая сцена не задана");
+        }
+    }
+
+    public void LoadGameOverScene()
+    {
+        if (!string.IsNullOrEmpty(gameOverScene))
+        {
+            SceneManager.LoadScene(gameOverScene);
+        }
+        else
+        {
+            Debug.LogError("Сцена конца игры не задана");
         }
     }
 }
