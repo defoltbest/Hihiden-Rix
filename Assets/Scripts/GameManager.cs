@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public string gameOverScene;
 
     private int currentMainLevelIndex = 0;
-    private int currentChildLevelIndex = 0;
+    private int currentChildLevelIndex = -1; // Начинаем с -1, чтобы первый дочерний уровень был с индексом 0
 
     private void Awake()
     {
@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
         if (mainLevelIndex >= 0 && mainLevelIndex < levelGroups.Count)
         {
             currentMainLevelIndex = mainLevelIndex;
-            currentChildLevelIndex = 0;
+            currentChildLevelIndex = -1; // Сбрасываем индекс дочернего уровня
+            Debug.Log($"Загрузка основного уровня: {levelGroups[mainLevelIndex].mainLevel}");
             SceneManager.LoadScene(levelGroups[mainLevelIndex].mainLevel);
         }
         else
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
         if (childLevelIndex >= 0 && childLevelIndex < levelGroups[currentMainLevelIndex].childLevels.Count)
         {
             currentChildLevelIndex = childLevelIndex;
+            Debug.Log($"Загрузка дочернего уровня: {levelGroups[currentMainLevelIndex].childLevels[childLevelIndex]}");
             SceneManager.LoadScene(levelGroups[currentMainLevelIndex].childLevels[childLevelIndex]);
         }
         else
@@ -99,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(startScene))
         {
+            Debug.Log($"Загрузка стартовой сцены: {startScene}");
             SceneManager.LoadScene(startScene);
         }
         else
@@ -111,6 +114,7 @@ public class GameManager : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(splashScreenScene))
         {
+            Debug.Log($"Загрузка сцены заставки: {splashScreenScene}");
             SceneManager.LoadScene(splashScreenScene);
         }
         else
@@ -123,6 +127,7 @@ public class GameManager : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(gameOverScene))
         {
+            Debug.Log($"Загрузка сцены конца игры: {gameOverScene}");
             SceneManager.LoadScene(gameOverScene);
         }
         else
@@ -133,6 +138,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartMainLevel()
     {
+        Debug.Log($"Перезапуск основного уровня: {levelGroups[currentMainLevelIndex].mainLevel}");
         LoadMainLevel(currentMainLevelIndex);
     }
 }

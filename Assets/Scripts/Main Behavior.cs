@@ -36,6 +36,7 @@ public class MainBehavior : MonoBehaviour
     private float currentTime;
     private int currentDialogueIndex = 0;
     private bool isDialogueActive = true;
+    private Coroutine typingCoroutine;
 
     void Start()
     {
@@ -104,7 +105,11 @@ public class MainBehavior : MonoBehaviour
         if (currentDialogueIndex < dialogues.Length)
         {
             Debug.Log($"Показ диалога: {dialogues[currentDialogueIndex]}"); // Лог для отладки
-            StartCoroutine(TypeText(dialogues[currentDialogueIndex]));
+            if (typingCoroutine != null)
+            {
+                StopCoroutine(typingCoroutine); // Останавливаем текущую корутину печати текста
+            }
+            typingCoroutine = StartCoroutine(TypeText(dialogues[currentDialogueIndex]));
             currentDialogueIndex++;
         }
         else
