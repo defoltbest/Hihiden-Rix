@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro; // Подключаем TextMeshPro
 
 public class MainBehavior : MonoBehaviour
@@ -43,6 +44,10 @@ public class MainBehavior : MonoBehaviour
     [SerializeField] private AudioSource typingAudioSource; // Общий аудио источник для текста
     [SerializeField] private AudioSource objectPickupAudioSource; // Аудио источник для поднятия объекта
     [SerializeField] private AudioSource nonObjectClickAudioSource; // Аудио источник для нажатия не на игровой объект
+    [SerializeField] private Button hintButton1; // Первая кнопка для подсказки
+    [SerializeField] private Button hintButton2; // Вторая кнопка для подсказки
+    [SerializeField] private Button hintButton3; // Третья кнопка для подсказки
+    [SerializeField] private GameObject hintObject; // Объект подсказки
 
     private float currentTime;
     private int currentDialogueIndex = 0;
@@ -63,6 +68,23 @@ public class MainBehavior : MonoBehaviour
         {
             isDialogueActive = false;
             SetUIFindObjectPrefabsActive(true); // Показать UIFindObjectPrefabs, если диалогов нет
+        }
+
+        // Назначить обработчики событий для кнопок
+        if (hintButton1 != null)
+        {
+            hintButton1.onClick.AddListener(ShowHint);
+            Debug.Log("Обработчик для hintButton1 назначен");
+        }
+        if (hintButton2 != null)
+        {
+            hintButton2.onClick.AddListener(ShowHint);
+            Debug.Log("Обработчик для hintButton2 назначен");
+        }
+        if (hintButton3 != null)
+        {
+            hintButton3.onClick.AddListener(ShowHint);
+            Debug.Log("Обработчик для hintButton3 назначен");
         }
     }
 
@@ -246,6 +268,37 @@ public class MainBehavior : MonoBehaviour
         {
             LevelComplete();
         }
+    }
+
+    private void ShowHint()
+    {
+        Debug.Log("ShowHint вызван"); // Лог для отладки
+        if (hintObject != null)
+        {
+            Debug.Log("Показ подсказки"); // Лог для отладки
+            hintObject.SetActive(true);
+            Animator animator = hintObject.GetComponent<Animator>();
+            if (animator != null)
+            {
+                Debug.Log("Анимация найдена, запуск корутины"); // Лог для отладки
+                StartCoroutine(DisableHintAfterAnimation(animator, hintObject));
+            }
+            else
+            {
+                Debug.LogError("Анимация не найдена на объекте подсказки");
+            }
+        }
+        else
+        {
+            Debug.LogError("Объект подсказки не назначен");
+        }
+    }
+
+    private IEnumerator DisableHintAfterAnimation(Animator animator, GameObject hintObject)
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        hintObject.SetActive(false);
+        Debug.Log("Подсказка скрыта"); // Лог для отладки
     }
 
     private void GameOver()

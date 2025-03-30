@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kitchen_DefaultMockup_0: -8979409287903445464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

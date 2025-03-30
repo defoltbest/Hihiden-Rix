@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KG_Toster_0: 7334136588771226844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
