@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Name
-      value: Hoch
+      value: Tryapka
       objectReference: {fileID: 0}
     - target: {fileID: 6994162796318679057, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Sprite
@@ -867,9 +867,9 @@ MonoBehaviour:
     - FindObjectPrefabs: {fileID: 1626661534}
       UIFindObjectPrefabs: {fileID: 1228008979}
     - FindObjectPrefabs: {fileID: 692507463}
-      UIFindObjectPrefabs: {fileID: 1944621254}
-    - FindObjectPrefabs: {fileID: 216970316}
       UIFindObjectPrefabs: {fileID: 260573173}
+    - FindObjectPrefabs: {fileID: 216970316}
+      UIFindObjectPrefabs: {fileID: 1944621254}
   dialogueTextMeshPro: {fileID: 5605309643759669711}
   dialogueSocket: {fileID: 5605309643759669712}
   dialogues:
@@ -887,6 +887,10 @@ MonoBehaviour:
   typingAudioSource: {fileID: 5605309643759669710}
   objectPickupAudioSource: {fileID: 0}
   nonObjectClickAudioSource: {fileID: 0}
+  hintButton1: {fileID: 0}
+  hintButton2: {fileID: 0}
+  hintButton3: {fileID: 0}
+  hintObject: {fileID: 0}
 --- !u!1 &1228008979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
@@ -922,7 +926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Name
-      value: Hpa
+      value: Toster
       objectReference: {fileID: 0}
     - target: {fileID: 6994162796318679057, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Sprite
@@ -1283,7 +1287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Name
-      value: Hfla
+      value: Tarelki
       objectReference: {fileID: 0}
     - target: {fileID: 6994162796318679057, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Sprite
@@ -1498,7 +1502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 826678050639112215, guid: 8685e2815cb5f5545a184541a9b7a861, type: 3}
+  m_Sprite: {fileID: 1970281720392666767, guid: 78cb4236bb4b9704cb1bb57ea9db0924, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1768,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Name
-      value: Hved
+      value: Hleb
       objectReference: {fileID: 0}
     - target: {fileID: 6994162796318679057, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
       propertyPath: m_Sprite
