@@ -156,6 +156,14 @@ MonoBehaviour:
     childLevels:
     - Level4_GY
     - Level5_GN
+  - mainLevel: Level6_KD
+    childLevels:
+    - Level7_KN
+    - Level8_KG
+    - Level9_KY
+  - mainLevel: Level10_TerassaRed
+    childLevels:
+    - Level11_FINAL
   splashScreenScene: Video
   startScene: StartScene
   gameOverScene: ENDGAME
