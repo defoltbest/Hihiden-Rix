@@ -741,6 +741,7 @@ MonoBehaviour:
   Timer:
     gameTimerText: {fileID: 2766375719053136622}
     gameTimeF: 10
+    timerAudioSource: {fileID: 0}
   FindObject:
     findObjectPrefabs:
     - FindObjectPrefabs: {fileID: 617498427719398580}
@@ -754,12 +755,20 @@ MonoBehaviour:
   dialogueTextMeshPro: {fileID: 1518588079796711074}
   dialogueSocket: {fileID: 5605309643759669711}
   dialogues:
-  - dialogueText: "\u041A\u0422\u041E"
+  - dialogueText: "\u0414\u043E\u0431\u0440\u043E\u0435 \u0443\u0442\u0440\u043E,
+      \u0447\u0435\u043B\u043E\u0432\u0435\u043A. \u041F\u0440\u043E\u0441\u043D\u0438\u0441\u044C.
+      \u0414\u043E\u043C \u0432 \u0431\u0435\u0441\u043F\u043E\u0440\u044F\u0434\u043A\u0435.
+      \u0410 \u0442\u044B \u2014 \u0435\u0433\u043E \u0445\u043E\u0437\u044F\u0438\u043D\u2026
+      \u0442\u0435\u043F\u0435\u0440\u044C."
+    dialoguePrefab: {fileID: 6913111425178451500, guid: 09a017e24eebad14da51c20162c60801, type: 3}
+  - dialogueText: "\u041B\u044E\u0434\u0438 \u0443\u0448\u043B\u0438. \u0410 \u0442\u044B
+      \u043E\u0441\u0442\u0430\u043B\u0441\u044F. \u0422\u044B \u0431\u0443\u0434\u0435\u0448\u044C\u2026
+      \u043F\u0440\u0438\u0431\u0438\u0440\u0430\u0442\u044C\u0441\u044F. \u041D\u0430\u0447\u043D\u0451\u043C
+      \u0441 \u0445\u043E\u043B\u043B\u0430."
     dialoguePrefab: {fileID: 6913111425178451500, guid: e8b18552aae231c428a1f16a138b9dd6, type: 3}
-  - dialogueText: "\u0422\u0410\u041A\u041E\u0419"
-    dialoguePrefab: {fileID: 6913111425178451500, guid: e8b18552aae231c428a1f16a138b9dd6, type: 3}
-  - dialogueText: "\u041A\u041E\u041E\u0422"
-    dialoguePrefab: {fileID: 6913111425178451500, guid: e8b18552aae231c428a1f16a138b9dd6, type: 3}
+  - dialogueText: "\u0418\u0440\u043E\u043D\u0438\u0447\u043D\u043E, \u043D\u0435
+      \u043F\u0440\u0430\u0432\u0434\u0430 \u043B\u0438?"
+    dialoguePrefab: {fileID: 6913111425178451500, guid: f1fbc187ccdecea499cfad8da24f1259, type: 3}
   typingDelay: 0.02
   typingAudioSource: {fileID: 5605309643759669710}
 --- !u!1 &1228008979 stripped

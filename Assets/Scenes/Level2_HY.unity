@@ -761,6 +761,7 @@ MonoBehaviour:
   Timer:
     gameTimerText: {fileID: 2766375719053136622}
     gameTimeF: 10
+    timerAudioSource: {fileID: 0}
   FindObject:
     findObjectPrefabs:
     - FindObjectPrefabs: {fileID: 617498427719398580}
@@ -771,17 +772,20 @@ MonoBehaviour:
       UIFindObjectPrefabs: {fileID: 260573173}
     - FindObjectPrefabs: {fileID: 216970316}
       UIFindObjectPrefabs: {fileID: 1944621254}
-  dialogueText: {fileID: 1518588079796711074}
+  dialogueTextMeshPro: {fileID: 0}
+  dialogueSocket: {fileID: 0}
   dialogues:
-  - "\u0422\u044B \u0437\u0432\u0430\u043B \u0433\u043E\u0441\u0442\u0435\u0439,
-    \u0430 \u043C\u0435\u043D\u044F \u2014 \u0447\u0442\u043E\u0431\u044B \u043D\u043E\u0441\u0438\u0442\u044C
-    \u0448\u0430\u0440\u044B \u0438 \u043F\u0440\u0438\u0442\u0432\u043E\u0440\u044F\u0442\u044C\u0441\u044F,
-    \u0447\u0442\u043E \u043C\u043D\u0435 \u0432\u0435\u0441\u0435\u043B\u043E."
-  - "\u0422\u0435\u043F\u0435\u0440\u044C \u043D\u0438\u043A\u043E\u0433\u043E \u043D\u0435\u0442.
-    \u041A\u0440\u043E\u043C\u0435 \u0442\u0435\u0431\u044F. \u0418, \u043A\u043E\u043D\u0435\u0447\u043D\u043E\u2026
-    \u0443\u0431\u043E\u0440\u043A\u0438."
+  - dialogueText: "\u044B \u0437\u0432\u0430\u043B \u0433\u043E\u0441\u0442\u0435\u0439,
+      \u0430 \u043C\u0435\u043D\u044F \u2014 \u0447\u0442\u043E\u0431\u044B \u043D\u043E\u0441\u0438\u0442\u044C
+      \u0448\u0430\u0440\u044B \u0438 \u043F\u0440\u0438\u0442\u0432\u043E\u0440\u044F\u0442\u044C\u0441\u044F,
+      \u0447\u0442\u043E \u043C\u043D\u0435 \u0432\u0435\u0441\u0435\u043B\u043E."
+    dialoguePrefab: {fileID: 6913111425178451500, guid: c7b0a3c9ea5f8bc4ea0d2025d0adde0f, type: 3}
+  - dialogueText: "\u0422\u0435\u043F\u0435\u0440\u044C \u043D\u0438\u043A\u043E\u0433\u043E
+      \u043D\u0435\u0442. \u041A\u0440\u043E\u043C\u0435 \u0442\u0435\u0431\u044F.
+      \u0418, \u043A\u043E\u043D\u0435\u0447\u043D\u043E\u2026 \u0443\u0431\u043E\u0440\u043A\u0438."
+    dialoguePrefab: {fileID: 6913111425178451500, guid: 611e503fe7db4e146973692819417e27, type: 3}
   typingDelay: 0.02
-  dialogueUI: {fileID: 8104287405727505122}
+  typingAudioSource: {fileID: 0}
 --- !u!1 &1228008979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
@@ -1326,17 +1330,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1518588079796711074 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7001090961737841469, guid: 6b2060f80f3f61041ac1354be2106544, type: 3}
-  m_PrefabInstance: {fileID: 5605309643759669709}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &2438988165878321834
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1984,11 +1977,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &8104287405727505122 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5331581976803932298, guid: 6b2060f80f3f61041ac1354be2106544, type: 3}
-  m_PrefabInstance: {fileID: 5605309643759669709}
-  m_PrefabAsset: {fileID: 0}
 --- !u!222 &8345260203956007362
 CanvasRenderer:
   m_ObjectHideFlags: 0
