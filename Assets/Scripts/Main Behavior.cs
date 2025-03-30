@@ -41,6 +41,8 @@ public class MainBehavior : MonoBehaviour
     [SerializeField] private DialogueSetting[] dialogues; // Массив структур для диалогов
     [SerializeField] private float typingDelay = 0.1f; // Задержка между печатью букв
     [SerializeField] private AudioSource typingAudioSource; // Общий аудио источник для текста
+    [SerializeField] private AudioSource objectPickupAudioSource; // Аудио источник для поднятия объекта
+    [SerializeField] private AudioSource nonObjectClickAudioSource; // Аудио источник для нажатия не на игровой объект
 
     private float currentTime;
     private int currentDialogueIndex = 0;
@@ -190,6 +192,14 @@ public class MainBehavior : MonoBehaviour
             {
                 HandleObjectClicked(hit.collider.gameObject);
             }
+            else
+            {
+                // Проигрывать звук нажатия не на игровой объект
+                if (nonObjectClickAudioSource != null)
+                {
+                    nonObjectClickAudioSource.Play();
+                }
+            }
         }
     }
 
@@ -197,6 +207,12 @@ public class MainBehavior : MonoBehaviour
     {
         Debug.Log($"Объект {clickedObject.name} кликнут и будет удален.");
         Destroy(clickedObject);
+
+        // Проигрывать звук поднятия объекта
+        if (objectPickupAudioSource != null)
+        {
+            objectPickupAudioSource.Play();
+        }
 
         // Найти соответствующий UIFindObjectPrefabs и скрыть его
         for (int i = 0; i < FindObject.findObjectPrefabs.Length; i++)
