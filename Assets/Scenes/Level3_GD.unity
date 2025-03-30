@@ -745,7 +745,7 @@ MonoBehaviour:
   Timer:
     gameTimerText: {fileID: 2766375719053136622}
     gameTimeF: 10
-    timerAudioSource: {fileID: 0}
+    timerAudioSource: {fileID: 5605309643759669713}
   FindObject:
     findObjectPrefabs:
     - FindObjectPrefabs: {fileID: 617498427719398580}
@@ -756,8 +756,8 @@ MonoBehaviour:
       UIFindObjectPrefabs: {fileID: 1944621254}
     - FindObjectPrefabs: {fileID: 216970316}
       UIFindObjectPrefabs: {fileID: 260573173}
-  dialogueTextMeshPro: {fileID: 0}
-  dialogueSocket: {fileID: 0}
+  dialogueTextMeshPro: {fileID: 5605309643759669711}
+  dialogueSocket: {fileID: 5605309643759669712}
   dialogues:
   - dialogueText: "\u0417\u0434\u0435\u0441\u044C \u0442\u044B \u0443\u0441\u0442\u0440\u0430\u0438\u0432\u0430\u043B
       \u043F\u0440\u0438\u0451\u043C\u044B, \u0441\u043F\u043E\u0440\u0438\u043B
@@ -775,7 +775,7 @@ MonoBehaviour:
       \u043A\u0440\u043E\u0448\u043A\u0443."
     dialoguePrefab: {fileID: 6913111425178451500, guid: 906372ecde8128e449e50b1ae182b66a, type: 3}
   typingDelay: 0.02
-  typingAudioSource: {fileID: 0}
+  typingAudioSource: {fileID: 5605309643759669710}
 --- !u!1 &1228008979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
@@ -1821,6 +1821,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b2060f80f3f61041ac1354be2106544, type: 3}
+--- !u!82 &5605309643759669710 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4396249900448142451, guid: 6b2060f80f3f61041ac1354be2106544, type: 3}
+  m_PrefabInstance: {fileID: 5605309643759669709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5605309643759669711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7001090961737841469, guid: 6b2060f80f3f61041ac1354be2106544, type: 3}
+  m_PrefabInstance: {fileID: 5605309643759669709}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &5605309643759669712 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7670357171743295544, guid: 6b2060f80f3f61041ac1354be2106544, type: 3}
+  m_PrefabInstance: {fileID: 5605309643759669709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5605309643759669713 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8977959641179652459, guid: 6b2060f80f3f61041ac1354be2106544, type: 3}
+  m_PrefabInstance: {fileID: 5605309643759669709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6078772443900054772
 RectTransform:
   m_ObjectHideFlags: 0
