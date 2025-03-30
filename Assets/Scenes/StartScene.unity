@@ -152,6 +152,10 @@ MonoBehaviour:
   - mainLevel: Level1
     childLevels:
     - Level2_HY
+  - mainLevel: Level3_GD
+    childLevels:
+    - Level4_GY
+    - Level5_GN
   splashScreenScene: Video
   startScene: StartScene
   gameOverScene: ENDGAME
