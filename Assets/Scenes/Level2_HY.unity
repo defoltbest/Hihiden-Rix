@@ -873,7 +873,7 @@ MonoBehaviour:
   dialogueTextMeshPro: {fileID: 5605309643759669711}
   dialogueSocket: {fileID: 5605309643759669712}
   dialogues:
-  - dialogueText: "\u044B \u0437\u0432\u0430\u043B \u0433\u043E\u0441\u0442\u0435\u0439,
+  - dialogueText: "\u0422\u044B \u0437\u0432\u0430\u043B \u0433\u043E\u0441\u0442\u0435\u0439,
       \u0430 \u043C\u0435\u043D\u044F \u2014 \u0447\u0442\u043E\u0431\u044B \u043D\u043E\u0441\u0438\u0442\u044C
       \u0448\u0430\u0440\u044B \u0438 \u043F\u0440\u0438\u0442\u0432\u043E\u0440\u044F\u0442\u044C\u0441\u044F,
       \u0447\u0442\u043E \u043C\u043D\u0435 \u0432\u0435\u0441\u0435\u043B\u043E."
@@ -884,6 +884,8 @@ MonoBehaviour:
     dialoguePrefab: {fileID: 6913111425178451500, guid: 611e503fe7db4e146973692819417e27, type: 3}
   typingDelay: 0.02
   typingAudioSource: {fileID: 5605309643759669710}
+  objectPickupAudioSource: {fileID: 0}
+  nonObjectClickAudioSource: {fileID: 0}
 --- !u!1 &1228008979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6003695470700698419, guid: 9b6d21adcd08e2c40a6264319a78cea6, type: 3}
