@@ -11,6 +11,7 @@ public class MainBehavior : MonoBehaviour
     {
         public TextMeshProUGUI gameTimerText; // Используем TextMeshProUGUI
         public float gameTimeF;
+        public AudioSource timerAudioSource; // Аудио источник для таймера
     }
 
     [Serializable]
@@ -39,7 +40,7 @@ public class MainBehavior : MonoBehaviour
     [SerializeField] private Transform dialogueSocket; // Сокет для инстанцирования префабов диалогов
     [SerializeField] private DialogueSetting[] dialogues; // Массив структур для диалогов
     [SerializeField] private float typingDelay = 0.1f; // Задержка между печатью букв
-
+    [SerializeField] private AudioSource typingAudioSource; // Общий аудио источник для текста
 
     private float currentTime;
     private int currentDialogueIndex = 0;
@@ -89,6 +90,11 @@ public class MainBehavior : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             UpdateTimerText();
+            // Проигрывать звук таймера
+            if (Timer.timerAudioSource != null && !Timer.timerAudioSource.isPlaying)
+            {
+                Timer.timerAudioSource.Play();
+            }
         }
         else
         {
@@ -128,6 +134,11 @@ public class MainBehavior : MonoBehaviour
             {
                 currentDialogueInstance = Instantiate(dialogues[currentDialogueIndex].dialoguePrefab, dialogueSocket);
             }
+            // Включить аудио источник
+            if (typingAudioSource != null)
+            {
+                typingAudioSource.Play();
+            }
             typingCoroutine = StartCoroutine(TypeText(dialogues[currentDialogueIndex].dialogueText));
             currentDialogueIndex++;
         }
@@ -150,6 +161,11 @@ public class MainBehavior : MonoBehaviour
         {
             dialogueTextMeshPro.text += c;
             yield return new WaitForSeconds(typingDelay);
+        }
+        // Остановить аудио источник после завершения печати текста
+        if (typingAudioSource != null)
+        {
+            typingAudioSource.Stop();
         }
     }
 
