@@ -26,17 +26,26 @@ public class MainBehavior : MonoBehaviour
         public FindObjectPrefabsSetting[] findObjectPrefabs;
     }
 
+    [Serializable]
+    public struct DialogueSetting
+    {
+        public string dialogueText;
+        public GameObject dialoguePrefab;
+    }
+
     [SerializeField, Tooltip("Сосал?")] private TimerSettings Timer;
     [SerializeField] private ObjectPrefabsSetting FindObject;
-    [SerializeField] private TextMeshProUGUI dialogueText; // Используем TextMeshProUGUI
-    [SerializeField] private string[] dialogues;
+    [SerializeField] private TextMeshProUGUI dialogueTextMeshPro; // Используем TextMeshProUGUI
+    [SerializeField] private Transform dialogueSocket; // Сокет для инстанцирования префабов диалогов
+    [SerializeField] private DialogueSetting[] dialogues; // Массив структур для диалогов
     [SerializeField] private float typingDelay = 0.1f; // Задержка между печатью букв
-    [SerializeField] private GameObject dialogueUI; // GameObject, который активен только во время диалога
+
 
     private float currentTime;
     private int currentDialogueIndex = 0;
     private bool isDialogueActive = true;
     private Coroutine typingCoroutine;
+    private GameObject currentDialogueInstance;
 
     void Start()
     {
@@ -104,29 +113,42 @@ public class MainBehavior : MonoBehaviour
     {
         if (currentDialogueIndex < dialogues.Length)
         {
-            Debug.Log($"Показ диалога: {dialogues[currentDialogueIndex]}"); // Лог для отладки
+            Debug.Log($"Показ диалога: {dialogues[currentDialogueIndex].dialogueText}"); // Лог для отладки
             if (typingCoroutine != null)
             {
                 StopCoroutine(typingCoroutine); // Останавливаем текущую корутину печати текста
             }
-            typingCoroutine = StartCoroutine(TypeText(dialogues[currentDialogueIndex]));
+            // Удалить предыдущий диалоговый инстанс
+            if (currentDialogueInstance != null)
+            {
+                Destroy(currentDialogueInstance);
+            }
+            // Инстанцировать текущий диалоговый префаб
+            if (dialogues[currentDialogueIndex].dialoguePrefab != null)
+            {
+                currentDialogueInstance = Instantiate(dialogues[currentDialogueIndex].dialoguePrefab, dialogueSocket);
+            }
+            typingCoroutine = StartCoroutine(TypeText(dialogues[currentDialogueIndex].dialogueText));
             currentDialogueIndex++;
         }
         else
         {
             isDialogueActive = false;
-            dialogueText.gameObject.SetActive(false);
-            dialogueUI.SetActive(false); // Скрыть диалоговый UI
+            dialogueTextMeshPro.gameObject.SetActive(false);
+            if (currentDialogueInstance != null)
+            {
+                Destroy(currentDialogueInstance); // Удалить последний диалоговый инстанс
+            }
             SetUIFindObjectPrefabsActive(true); // Показать UIFindObjectPrefabs
         }
     }
 
     private IEnumerator TypeText(string text)
     {
-        dialogueText.text = "";
+        dialogueTextMeshPro.text = "";
         foreach (char c in text)
         {
-            dialogueText.text += c;
+            dialogueTextMeshPro.text += c;
             yield return new WaitForSeconds(typingDelay);
         }
     }
