@@ -148,8 +148,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6938940235081a4b95422649760c6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScenes:
-  - Level1
+  levelGroups:
+  - mainLevel: 
+    childLevels:
+    - 
+    - 
+  - mainLevel: 
+    childLevels:
+    - 
+    - 
   splashScreenScene: Video
   startScene: StartScene
   gameOverScene: ENDGAME

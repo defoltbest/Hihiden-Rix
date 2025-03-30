@@ -19,6 +19,13 @@ public class StartScene : MonoBehaviour
 
     private void OnStartButtonClicked()
     {
-        GameManager.Instance.LoadSplashScreen(); // Загружаем сцену заставки
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadSplashScreen(); // Загружаем сцену заставки
+        }
+        else
+        {
+            Debug.LogError("GameManager.Instance не найден");
+        }
     }
 }

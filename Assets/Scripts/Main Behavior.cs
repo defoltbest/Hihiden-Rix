@@ -192,8 +192,9 @@ public class MainBehavior : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Игра окончена");
-        GameManager.Instance.LoadGameOverScene();
+        GameManager.Instance.RestartMainLevel(); // Перезапуск основного уровня при проигрыше
     }
+
     private void LevelComplete()
     {
         Debug.Log("Уровень пройден");

@@ -1,12 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+[System.Serializable]
+public struct LevelGroup
+{
+    public string mainLevel;
+    public List<string> childLevels;
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Tooltip("Список сцен уровней")]
-    public string[] levelScenes;
+    [Tooltip("Список основных уровней и их дочерних уровней")]
+    public List<LevelGroup> levelGroups;
 
     [Tooltip("Сцена заставки")]
     public string splashScreenScene;
@@ -17,7 +25,8 @@ public class GameManager : MonoBehaviour
     [Tooltip("Окно с концом игры")]
     public string gameOverScene;
 
-    private int currentLevelIndex = 0;
+    private int currentMainLevelIndex = 0;
+    private int currentChildLevelIndex = 0;
 
     private void Awake()
     {
@@ -37,42 +46,52 @@ public class GameManager : MonoBehaviour
         LoadStartScene();
     }
 
-    public void LoadLevel(int levelIndex)
+    public void LoadMainLevel(int mainLevelIndex)
     {
-        if (levelIndex >= 0 && levelIndex < levelScenes.Length)
+        if (mainLevelIndex >= 0 && mainLevelIndex < levelGroups.Count)
         {
-            currentLevelIndex = levelIndex;
-            SceneManager.LoadScene(levelScenes[levelIndex]);
+            currentMainLevelIndex = mainLevelIndex;
+            currentChildLevelIndex = 0;
+            SceneManager.LoadScene(levelGroups[mainLevelIndex].mainLevel);
         }
         else
         {
-            Debug.LogError("Неверный индекс уровня");
+            Debug.LogError("Неверный индекс основного уровня");
         }
     }
 
-    public void LoadSplashScreen()
+    public void LoadChildLevel(int childLevelIndex)
     {
-        if (!string.IsNullOrEmpty(splashScreenScene))
+        if (childLevelIndex >= 0 && childLevelIndex < levelGroups[currentMainLevelIndex].childLevels.Count)
         {
-            SceneManager.LoadScene(splashScreenScene);
+            currentChildLevelIndex = childLevelIndex;
+            SceneManager.LoadScene(levelGroups[currentMainLevelIndex].childLevels[childLevelIndex]);
         }
         else
         {
-            Debug.LogError("Сцена заставки не задана");
+            Debug.LogError("Неверный индекс дочернего уровня");
         }
     }
 
     public void LoadNextLevel()
     {
-        int nextLevelIndex = currentLevelIndex + 1;
-        if (nextLevelIndex < levelScenes.Length)
+        int nextChildLevelIndex = currentChildLevelIndex + 1;
+        if (nextChildLevelIndex < levelGroups[currentMainLevelIndex].childLevels.Count)
         {
-            LoadLevel(nextLevelIndex);
+            LoadChildLevel(nextChildLevelIndex);
         }
         else
         {
-            Debug.Log("Все уровни пройдены!");
-            LoadStartScene();
+            int nextMainLevelIndex = currentMainLevelIndex + 1;
+            if (nextMainLevelIndex < levelGroups.Count)
+            {
+                LoadMainLevel(nextMainLevelIndex);
+            }
+            else
+            {
+                Debug.Log("Все уровни пройдены!");
+                LoadStartScene();
+            }
         }
     }
 
@@ -88,6 +107,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadSplashScreen()
+    {
+        if (!string.IsNullOrEmpty(splashScreenScene))
+        {
+            SceneManager.LoadScene(splashScreenScene);
+        }
+        else
+        {
+            Debug.LogError("Сцена заставки не задана");
+        }
+    }
+
     public void LoadGameOverScene()
     {
         if (!string.IsNullOrEmpty(gameOverScene))
@@ -98,5 +129,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Сцена конца игры не задана");
         }
+    }
+
+    public void RestartMainLevel()
+    {
+        LoadMainLevel(currentMainLevelIndex);
     }
 }

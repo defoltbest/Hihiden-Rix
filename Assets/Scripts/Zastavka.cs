@@ -34,7 +34,6 @@ public class Zastavka : MonoBehaviour
 
     private void LoadFirstLevel()
     {
-        GameManager.Instance.LoadLevel(0); // «агружаем первый уровень из массива
+        GameManager.Instance.LoadMainLevel(0); // «агружаем первый основной уровень
     }
 }
-
