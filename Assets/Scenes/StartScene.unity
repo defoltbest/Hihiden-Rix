@@ -159,6 +159,7 @@ MonoBehaviour:
   splashScreenScene: Video
   startScene: StartScene
   gameOverScene: ENDGAME
+  gameOverVideoScene: Video1
 --- !u!4 &414282222
 Transform:
   m_ObjectHideFlags: 0

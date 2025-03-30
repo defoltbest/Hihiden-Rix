@@ -235,7 +235,7 @@ public class MainBehavior : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Игра окончена");
-        GameManager.Instance.RestartMainLevel(); // Перезапуск основного уровня при проигрыше
+        GameManager.Instance.LoadGameOverVideoScene(); // Загрузка сцены проигрыша с видео
     }
 
     private void LevelComplete()

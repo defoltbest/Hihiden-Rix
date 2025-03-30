@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("Окно с концом игры")]
     public string gameOverScene;
 
+    [Tooltip("Сцена проигрыша с видео")]
+    public string gameOverVideoScene;
+
     private int currentMainLevelIndex = 0;
     private int currentChildLevelIndex = -1; // Начинаем с -1, чтобы первый дочерний уровень был с индексом 0
 
@@ -133,6 +136,19 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogError("Сцена конца игры не задана");
+        }
+    }
+
+    public void LoadGameOverVideoScene()
+    {
+        if (!string.IsNullOrEmpty(gameOverVideoScene))
+        {
+            Debug.Log($"Загрузка сцены проигрыша с видео: {gameOverVideoScene}");
+            SceneManager.LoadScene(gameOverVideoScene);
+        }
+        else
+        {
+            Debug.LogError("Сцена проигрыша с видео не задана");
         }
     }
 

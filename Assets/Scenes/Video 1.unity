@@ -163,7 +163,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://defoltbest.github.io/host/ZASATAVKA.mp4
+  m_Url: https://defoltbest.github.io/host/NeonGlitchArrows.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -197,12 +197,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1034370110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d220bfdfe80c9946bda81b96003e3b9, type: 3}
+  m_Script: {fileID: 11500000, guid: dd51a5784cbcd7c43a4283426cfb7532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStartVideo: 0
   videoPlayer: {fileID: 1034370111}
-  videoUrl: https://defoltbest.github.io/host/ZASATAVKA.mp4
+  videoUrl: https://defoltbest.github.io/host/NeonGlitchArrows.mp4
 --- !u!1 &1352838198
 GameObject:
   m_ObjectHideFlags: 0
